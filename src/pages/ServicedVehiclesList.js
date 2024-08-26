@@ -14,7 +14,7 @@ const ServicedVehiclesList = () => {
   }, []);
 
   return (
-    <section className="w-5/6 mx-auto min-h-full p-5 md:mt-56">
+    <section className="w-5/6 mx-auto min-h-full p-5  md:w-full md:mx-0 ">
       <h1>Serviced Vehicle List</h1>
       <div className="shadow shadow-black">
         {vehicleDetails?.map((v) => (

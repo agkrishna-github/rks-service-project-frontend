@@ -1,12 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "../pages/Footer";
 
 const Layout = () => {
   return (
-    <div className="md:flex md:flex-col md:gap-y-5">
+    <div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };

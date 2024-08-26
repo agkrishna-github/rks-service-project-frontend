@@ -22,11 +22,8 @@ const HomeDelivery = () => {
   }, [driver]);
 
   return (
-    <section
-      className="w-screen md:mt-56"
-      style={{ height: "calc(100vh - 100px)" }}
-    >
-      <div className="w-5/6 mx-auto shadow shadow-black min-h-full p-5 ">
+    <section className="w-screen" style={{ minHeight: "calc(100vh - 100px)" }}>
+      <div className="w-5/6 mx-auto shadow shadow-black p-5 md:p-2">
         <h1>Home Delivery</h1>
         <div className="md:flex md:flex-col">
           <div className="bg-blue-900 p-3 mb-3 grid grid-cols-2 gap-4">
@@ -85,7 +82,7 @@ const HomeDelivery = () => {
                 ))}
               </select>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 md:mb-10">
               <Link
                 to="/gmappage"
                 className="inline-block p-3 bg-blue-400 rounded-md text-white no-underline"

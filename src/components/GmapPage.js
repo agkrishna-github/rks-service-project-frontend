@@ -104,7 +104,7 @@ const GmapPage = () => {
   };
 
   return (
-    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:mt-56 md:flex md:flex-col">
+    <section className="w-5/6 mx-auto md:w-screen min-h-[500px] p-2 grid grid-cols-2 md:grid-cols-none gap-x-5 shadow-xl shadow-black rounded-md  ">
       <div className="p-3">
         <h2>Vehicle Delivery Details</h2>
         <div className="mt-10">
@@ -173,18 +173,10 @@ const GmapPage = () => {
               Stop Maps
             </button>
           </div> */}
-          <div className="">
-            <button
-              className="py-1 px-2 w-[200px] cursor-pointer bg-white"
-              onClick={showInMapClicked}
-            >
-              Take a photo
-            </button>
-          </div>
         </div>
       </div>
-      <div>
-        <div className="shadow shadow-black mt-10 md:pb-14 w-[500px] h-[500px] md:w-[300px] md:h-[300px]">
+      <div className="shadow shadow-black mt-10 w-[500px] md:w-full h-[500px] md:h-[550px]">
+        <div className="md:w-[100%] md:h-[550px] md:mb-10 ">
           <GoogleMap
             center={center}
             zoom={20}
@@ -196,6 +188,22 @@ const GmapPage = () => {
               <DirectionsRenderer directions={deirectionResponse} />
             )}
           </GoogleMap>
+        </div>
+        <div className="flex">
+          <button
+            className="py-1 px-2 md:p-5 md:mt-10 w-[200px] cursor-pointer bg-white "
+            onClick={showInMapClicked}
+          >
+            Take a photo
+          </button>
+        </div>
+        <div className="flex">
+          <button
+            className="py-1 px-2 md:p-5 md:mt-10 w-[200px] cursor-pointer bg-white "
+            // onClick={showInMapClicked}
+          >
+            Delivered
+          </button>
         </div>
       </div>
     </section>

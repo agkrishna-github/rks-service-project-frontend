@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <section className="h-[100px] w-screen grid grid-cols-2 md:w-screen md:flex md:flex-col">
+    <section className="h-[100px] md:min-h-[350px] w-screen grid grid-cols-2 md:w-screen md:flex md:flex-col">
       <div className="bg-[#F4F4F4] ms-36 h-[100px]">
         <img src={logo} alt="SABOO LOGO" className="h-full" />
       </div>

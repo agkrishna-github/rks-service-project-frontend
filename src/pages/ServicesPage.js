@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
   return (
-    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:mt-56 md:grid-cols-none">
+    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:grid-cols-none">
       <div className="bg-blue-900 shadow-sm shadow-black p-3 flex flex-col justify-center text-white ">
         <p>
           <Link
