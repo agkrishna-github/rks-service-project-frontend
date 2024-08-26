@@ -104,7 +104,7 @@ const GmapPage = () => {
   };
 
   return (
-    <div className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md">
+    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:mt-56 md:flex md:flex-col">
       <div className="p-3">
         <h2>Vehicle Delivery Details</h2>
         <div className="mt-10">
@@ -120,11 +120,11 @@ const GmapPage = () => {
                     ref={originRef}
                     type="text"
                     placeholder=""
-                    className="p-2 w-[400px] mt-2"
+                    className="p-2 w-[400px] mt-2 md:w-full"
                   />
                 </StandaloneSearchBox>
               </div>
-              <div className="mt-10">
+              <div className="mt-10 md:mb-10">
                 <label htmlFor="">Customer Location</label>
                 <StandaloneSearchBox
                   onLoad={(ref) => (endInputRef.current = ref)}
@@ -134,7 +134,7 @@ const GmapPage = () => {
                     ref={destinationRef}
                     type="text"
                     placeholder=""
-                    className="p-2 w-[400px] mt-2"
+                    className="p-2 w-[400px] mt-2 md:w-full"
                   />
                 </StandaloneSearchBox>
               </div>
@@ -184,11 +184,11 @@ const GmapPage = () => {
         </div>
       </div>
       <div>
-        <div className="shadow shadow-black mt-10">
+        <div className="shadow shadow-black mt-10 md:pb-14 w-[500px] h-[500px] md:w-[300px] md:h-[300px]">
           <GoogleMap
             center={center}
             zoom={20}
-            mapContainerStyle={{ width: "550px", height: "500px" }}
+            mapContainerStyle={{ width: "100%", height: "100%" }}
             onLoad={(map) => setMap(map)}
           >
             <Marker position={center} />
@@ -198,7 +198,7 @@ const GmapPage = () => {
           </GoogleMap>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

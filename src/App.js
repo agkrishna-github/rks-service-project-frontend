@@ -18,18 +18,18 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="services" element={<ServicesPage />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
           <Route
             path="serviced-vehicles-list"
             element={<ServicedVehiclesList />}
           />
           <Route path="home-delivery/:vid" element={<HomeDelivery />} />
           <Route path="gmappage" element={<GmapPage />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
-        {/*  
-        <Route path="addressPage" element={<AddressPage />} /> */}
       </Routes>
+      {/*  
+        <Route path="addressPage" element={<AddressPage />} /> */}
     </div>
   );
 }

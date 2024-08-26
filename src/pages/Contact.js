@@ -2,11 +2,11 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md">
+    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:mt-56 md:flex md:flex-col">
       <div className="bg-blue-900 shadow-sm shadow-black p-3 flex justify-center items-center text-white">
         <h3>Contact Us</h3>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center md:mt-14">
         <form action="" className="">
           <div className="flex flex-col mb-3">
             <label htmlFor="">
@@ -34,7 +34,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

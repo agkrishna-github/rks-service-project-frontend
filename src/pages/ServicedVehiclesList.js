@@ -14,13 +14,13 @@ const ServicedVehiclesList = () => {
   }, []);
 
   return (
-    <div className="w-5/6 mx-auto min-h-full p-5">
+    <section className="w-5/6 mx-auto min-h-full p-5 md:mt-56">
       <h1>Serviced Vehicle List</h1>
       <div className="shadow shadow-black">
         {vehicleDetails?.map((v) => (
           <div
             key={v._id}
-            className="bg-blue-900 p-3 mb-3 grid grid-cols-2 gap-4"
+            className="bg-blue-900 p-3 mb-3 grid grid-cols-2 gap-4 md:flex md:flex-col md:p-1"
           >
             <div className=" text-white">
               <p className="mb-3">
@@ -57,7 +57,7 @@ const ServicedVehiclesList = () => {
                 Pincode : <b>{v.pincode}</b>
               </p>
             </div>
-            <div className="bg-white flex flex-col gap-8 justify-center items-center">
+            <div className="bg-white flex flex-col gap-8 justify-center items-center md:p-2">
               <div>Delivery Venue : </div>
               <Link to={`/home-delivery/${v._id}`}>
                 <button className="w-[200px] p-3 rounded-md cursor-pointer hover:bg-black hover:text-white text-red-500">
@@ -71,7 +71,7 @@ const ServicedVehiclesList = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

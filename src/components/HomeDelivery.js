@@ -22,10 +22,13 @@ const HomeDelivery = () => {
   }, [driver]);
 
   return (
-    <div className="w-screen " style={{ height: "calc(100vh - 100px)" }}>
-      <div className="w-5/6 mx-auto shadow shadow-black min-h-full p-5">
-        <h1>Home Delivery Page</h1>
-        <div>
+    <section
+      className="w-screen md:mt-56"
+      style={{ height: "calc(100vh - 100px)" }}
+    >
+      <div className="w-5/6 mx-auto shadow shadow-black min-h-full p-5 ">
+        <h1>Home Delivery</h1>
+        <div className="md:flex md:flex-col">
           <div className="bg-blue-900 p-3 mb-3 grid grid-cols-2 gap-4">
             <div className="text-white">
               <p className="mb-3">
@@ -62,41 +65,38 @@ const HomeDelivery = () => {
                 Pincode : <b>{singleVehicleDetails?.pincode}</b>
               </p>
             </div>
-            <div className="bg-white flex flex-col gap-8 justify-center items-center">
-              <h4>Driver Details</h4>
+          </div>
+          <div className="bg-white flex flex-col gap-8 justify-center items-center">
+            <h4>Driver Details</h4>
 
-              <div>
-                <select
-                  name=""
-                  id=""
-                  value={driver}
-                  className="w-48 p-3"
-                  onChange={(e) => setDriver(e.target.value)}
-                >
-                  <option value="">Select Driver</option>
-                  {driversDetails?.map((d) => (
-                    <option
-                      value={d?.driverId}
-                      className="w-48 p-3 inline-block"
-                    >
-                      {d?.driverName}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="mt-5">
-                <Link
-                  to="/gmappage"
-                  className="inline-block p-3 bg-blue-400 rounded-md text-white no-underline"
-                >
-                  Start Pickup
-                </Link>
-              </div>
+            <div>
+              <select
+                name=""
+                id=""
+                value={driver}
+                className="w-48 p-3"
+                onChange={(e) => setDriver(e.target.value)}
+              >
+                <option value="">Select Driver</option>
+                {driversDetails?.map((d) => (
+                  <option value={d?.driverId} className="w-48 p-3 inline-block">
+                    {d?.driverName}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="mt-5">
+              <Link
+                to="/gmappage"
+                className="inline-block p-3 bg-blue-400 rounded-md text-white no-underline"
+              >
+                Start Pickup
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

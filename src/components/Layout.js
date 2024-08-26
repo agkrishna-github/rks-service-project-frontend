@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="md:flex md:flex-col md:gap-y-5">
       <Header />
       <Outlet />
     </div>

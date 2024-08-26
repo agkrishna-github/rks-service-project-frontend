@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
   return (
-    <div className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md">
-      <div className="bg-blue-900 shadow-sm shadow-black p-3 flex flex-col justify-center text-white">
+    <section className="w-5/6 mx-auto min-h-[500px] p-2 grid grid-cols-2 gap-x-5 shadow-xl shadow-black rounded-md md:mt-56 md:grid-cols-none">
+      <div className="bg-blue-900 shadow-sm shadow-black p-3 flex flex-col justify-center text-white ">
         <p>
           <Link
             className="no-underline hover:underline hover:text-red-500 text-white"
@@ -38,8 +38,8 @@ const ServicesPage = () => {
           </Link>
         </p>
       </div>
-      <div className="shadow-sm shadow-black p-3 h-full w-full"></div>
-    </div>
+      <div className="shadow-sm shadow-black p-3 h-full w-full md:hidden"></div>
+    </section>
   );
 };
 
