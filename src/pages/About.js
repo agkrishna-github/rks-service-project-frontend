@@ -14,7 +14,7 @@ const About = () => {
       </div>
       <div className="bg-blue-900 shadow-sm shadow-black p-3 flex justify-center items-center text-white">
         <p>
-          Saboo RKS has been at the forefront of Hyderabad's automotive
+          Saboo RKS Motors has been at the forefront of Hyderabad's automotive
           industry, driving growth in automobile sales and service for over four
           decades. With a history dating back to 1973, we began as a 2-wheeler
           dealership and have since expanded to include 4-wheelers, becoming an
