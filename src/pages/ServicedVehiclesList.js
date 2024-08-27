@@ -13,6 +13,8 @@ const ServicedVehiclesList = () => {
     dispatch(getVehiclesDetails());
   }, []);
 
+  console.log(vehicleDetails);
+
   return (
     <section className="w-5/6 mx-auto min-h-full p-5  md:w-full md:mx-0 ">
       <h1>Serviced Vehicle List</h1>
@@ -24,6 +26,9 @@ const ServicedVehiclesList = () => {
           >
             <div className=" text-white">
               <p className="mb-3">
+                Registration Number : <b>{v.regNumber}</b>
+              </p>
+              <p className="mb-3">
                 Customer Name : <b>{v.customerName}</b>
               </p>
               <p className="mb-3">
@@ -32,39 +37,15 @@ const ServicedVehiclesList = () => {
               <p className="mb-3">
                 Vehicle Color : <b>{v.color}</b>
               </p>
-              <p className="mb-3">
-                Contact Number : <b>{v.phone}</b>
-              </p>
-              <p className="mb-3">
-                House Number : <b>{v.houseNumber}</b>
-              </p>
-              <p className="mb-3">
-                Street : <b>{v.street}</b>
-              </p>
-              <p className="mb-3">
-                Area : <b>{v.area}</b>
-              </p>
-              <p className="mb-3">
-                City : <b>{v.city}</b>
-              </p>
-              <p className="mb-3">
-                Mandal : <b>{v.mandal}</b>
-              </p>
-              <p className="mb-3">
-                State : <b>{v.state}</b>
-              </p>
-              <p className="mb-3">
-                Pincode : <b>{v.pincode}</b>
-              </p>
             </div>
-            <div className="bg-white flex flex-col gap-8 justify-center items-center md:p-2">
+            <div className="bg-white p-4 flex flex-col gap-5 justify-center items-center md:p-2">
               <div>Delivery Venue : </div>
               <Link to={`/home-delivery/${v._id}`}>
-                <button className="w-[200px] p-3 rounded-md cursor-pointer hover:bg-black hover:text-white text-red-500">
+                <button className="w-[200px] p-3 rounded-md cursor-pointer hover:bg-blue-900 hover:text-white text-red-500">
                   HOME
                 </button>
               </Link>
-              <button className="w-[200px] p-3 rounded-md cursor-pointer hover:bg-black hover:text-white">
+              <button className="w-[200px] p-3 rounded-md cursor-pointer hover:bg-blue-900 hover:text-white">
                 SHOWROOM
               </button>
             </div>

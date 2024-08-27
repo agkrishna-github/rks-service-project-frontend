@@ -7,6 +7,8 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import { useRef } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const center = { lat: 17.4241643, lng: 78.45733709999999 };
 const google = window.google;
@@ -20,31 +22,45 @@ const GmapPage = () => {
   const [startLong, setStartLong] = useState("");
   const [endLati, setEndLati] = useState("");
   const [endLong, setEndLong] = useState("");
+  const [delAdd, setDelAdd] = useState(
+    "Maruti Suzuki Arena - Saboo RKS Motor Pvt. Ltd, Raj Bhavan Road, Matha Nagar, Somajiguda, Hyderabad, Telangana, India"
+  );
 
   const [gpsLati, setGpsLati] = useState("");
   const [gpsLong, setGpsLong] = useState("");
+
+  let delVehState = useSelector((state) => state?.deliveryVehicle);
+
+  const navigate = useNavigate();
+  const { did } = useParams();
+  const { state } = useLocation();
+  console.log(did);
+  console.log(state.vid);
 
   const originRef = useRef();
   const destinationRef = useRef();
 
   const geo = navigator.geolocation;
+  let watchID;
 
-  geo.getCurrentPosition(userCoords);
-  function userCoords(position) {
-    let userLatitude = position.coords.latitude;
-    let userLongitude = position.coords.longitude;
-    console.log("latitude", userLatitude);
-    console.log("longitude", userLongitude);
-  }
+  useEffect(() => {
+    geo.getCurrentPosition(userCoords);
+    function userCoords(position) {
+      let userLatitude = position.coords.latitude;
+      let userLongitude = position.coords.longitude;
+      console.log("latitude", userLatitude);
+      console.log("longitude", userLongitude);
+    }
 
-  const watchID = geo.watchPosition(userGpsCoords);
-  function userGpsCoords(position) {
-    console.log(position);
-    let userGpsLatitude = position.coords.latitude;
-    let userGpsLongitude = position.coords.longitude;
-    console.log("gpslatitude", userGpsLatitude);
-    console.log("gpslongitude", userGpsLongitude);
-  }
+    watchID = geo.watchPosition(userGpsCoords);
+    function userGpsCoords(position) {
+      console.log(position);
+      let userGpsLatitude = position.coords.latitude;
+      let userGpsLongitude = position.coords.longitude;
+      console.log("gpslatitude", userGpsLatitude);
+      console.log("gpslongitude", userGpsLongitude);
+    }
+  }, [did]);
 
   const startInputRef = useRef(null);
   const endInputRef = useRef(null);
@@ -97,7 +113,15 @@ const GmapPage = () => {
     window.open(
       `https://maps.google.com/maps/dir/?api=1&origin=${startLati},${startLong}&destination=${endLati},${endLong}&key=AIzaSyAf4vRvjVvt-AuStWjrfbA-tJNYouHBpb4`
     );
+
+    navigate("/uploadImage", { state: { did: did, vid: state.vid } });
   };
+
+  useEffect(() => {
+    if (delVehState?.isSuccess) {
+      stopGPS();
+    }
+  }, [delVehState]);
 
   const stopGPS = () => {
     geo.clearWatch(watchID);
@@ -118,6 +142,7 @@ const GmapPage = () => {
                 >
                   <input
                     ref={originRef}
+                    value={delAdd}
                     type="text"
                     placeholder=""
                     className="p-2 w-[400px] mt-2 md:w-full"
@@ -142,24 +167,23 @@ const GmapPage = () => {
           )}
         </div>
         <div className="flex flex-col gap-y-9">
+          <div className="mt-5 ">
+            <button
+              onClick={calculateRoute}
+              className="p-2 w-[200px] cursor-pointer  hover:bg-blue-900 hover:text-white"
+            >
+              Get Directions
+            </button>
+          </div>
           {distance && duration && (
             <div className="mt-3">
               <h4 className="mb-2">Distance : {distance}</h4>
               <h4 className="m">Duration : {duration}</h4>
             </div>
           )}
-          <div className=" ">
-            <button
-              onClick={calculateRoute}
-              className="p-2 w-[200px] cursor-pointer bg-white"
-            >
-              Get Directions
-            </button>
-          </div>
-
           <div className="">
             <button
-              className="py-1 px-2 w-[200px] cursor-pointer bg-white"
+              className="py-1 px-2 w-[200px] cursor-pointer hover:bg-blue-900 hover:text-white"
               onClick={showInMapClicked}
             >
               Go to maps
@@ -176,7 +200,7 @@ const GmapPage = () => {
         </div>
       </div>
       <div className="shadow shadow-black mt-10 w-[500px] md:w-full h-[500px] md:h-[550px]">
-        <div className="md:w-[100%] md:h-[550px] md:mb-10 ">
+        <div className="md:w-[100%] md:h-[550px] md:mb-10 h-[500px]">
           <GoogleMap
             center={center}
             zoom={20}
@@ -188,22 +212,6 @@ const GmapPage = () => {
               <DirectionsRenderer directions={deirectionResponse} />
             )}
           </GoogleMap>
-        </div>
-        <div className="flex">
-          <button
-            className="py-1 px-2 md:p-5 md:mt-10 w-[200px] cursor-pointer bg-white "
-            onClick={showInMapClicked}
-          >
-            Take a photo
-          </button>
-        </div>
-        <div className="flex">
-          <button
-            className="py-1 px-2 md:p-5 md:mt-10 w-[200px] cursor-pointer bg-white "
-            // onClick={showInMapClicked}
-          >
-            Delivered
-          </button>
         </div>
       </div>
     </section>

@@ -9,6 +9,12 @@
     box-sizing: border-box;
 }
 
+.dropzone {
+    border: 2px solid black;
+    padding: 5px;
+    height: 200px;
+}
+
 
 .bgw {
     background-color: white;

@@ -10,6 +10,7 @@ import MapPage from "./components/MapPage";
 import GmapPage from "./components/GmapPage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import UploadPhoto from "./pages/UploadPhoto";
 
 function App() {
   return (
@@ -23,9 +24,10 @@ function App() {
             element={<ServicedVehiclesList />}
           />
           <Route path="home-delivery/:vid" element={<HomeDelivery />} />
-          <Route path="gmappage" element={<GmapPage />} />
+          <Route path="gmappage/:did" element={<GmapPage />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="uploadImage" element={<UploadPhoto />} />
         </Route>
       </Routes>
       {/*  
